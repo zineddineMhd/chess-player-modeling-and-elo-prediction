@@ -997,7 +997,8 @@ class PlayerSetDataset(Dataset):
         n = min(n, len(g), self.max_n)
         chosen = rng.choice(np.arange(len(g)), size=n, replace=False)
         x = g.loc[chosen, self.feature_cols].to_numpy(dtype=np.float32)
-        if self.scaler is not None:            x = self.scaler.transform(x).astype(np.float32)
+        if self.scaler is not None:
+            x = self.scaler.transform(x).astype(np.float32)
 
         x_pad = np.zeros((self.max_n, len(self.feature_cols)), dtype=np.float32)
         mask = np.zeros((self.max_n,), dtype=np.float32)
@@ -1996,7 +1997,8 @@ for cadence in plot_df['cadence'].unique():
     plt.xlabel('Nombre de parties N')
     plt.ylabel('MAE Elo')
     plt.grid(True, alpha=0.3)
-    plt.legend()    plt.show()
+    plt.legend()
+    plt.show()
 
 # 2) Biais par bucket Elo pour V9 et meilleur V10 uniquement.
 if 'bucket_summary' in globals() and not bucket_summary.empty:

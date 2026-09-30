@@ -997,7 +997,8 @@ for cadence in CADENCES:
     kept_feats = get_features_without_blocs(
         cadence_datasets[cadence], blocs_to_remove=['Contexte', 'Stabilite']
     )
-    exp_C[cadence], _ = run_experiment(        f"C-no-context-{cadence}", cadence_datasets[cadence], feature_subset=kept_feats
+    exp_C[cadence], _ = run_experiment(
+        f"C-no-context-{cadence}", cadence_datasets[cadence], feature_subset=kept_feats
     )
 
 # %% [markdown]

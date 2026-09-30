@@ -997,7 +997,8 @@ if CATBOOST_AVAILABLE:
 
 # ── MLP ──────────────────────────────────────────────────────────────────────────────
 if MLP_AVAILABLE:
-    results_v3.append(evaluate_model(        'MLP',
+    results_v3.append(evaluate_model(
+        'MLP',
         Pipeline([('i', SimpleImputer(strategy='median')),
                   ('s', StandardScaler()),
                   ('m', MLPRegressor(

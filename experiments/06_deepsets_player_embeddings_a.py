@@ -997,7 +997,8 @@ def train_neural_model(model, train_loader, val_loader, epochs=80, patience=12, 
     model = model.to(DEVICE)
     opt = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=weight_decay)
     criterion = nn.SmoothL1Loss()
-    best_mae = float('inf')    best_state = None
+    best_mae = float('inf')
+    best_state = None
     wait = 0
 
     for epoch in range(1, epochs + 1):
@@ -1996,7 +1997,8 @@ def get_lgbm_feature_columns(df, target="elo"):
         "name",
     }
 
-    cols = []    for c in df.columns:
+    cols = []
+    for c in df.columns:
         if c in exclude:
             continue
         if pd.api.types.is_numeric_dtype(df[c]):

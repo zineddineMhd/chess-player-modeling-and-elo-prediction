@@ -997,7 +997,8 @@ for key,dfp in V11_PRED_TABLES.items():
     b=df.groupby("elo_bucket",observed=False).agg(elo_true_mean=("elo","mean"),pred_mean=("pred_player_elo","mean"),bias_mean=("bias","mean"),MAE=("abs_error","mean"),n=("elo","count")).reset_index()
     b["cadence"]=cadence; b["N"]=N; b["seed"]=seed; b["approach_key"]=approach_key; bucket_rows.append(b)
 bucket_detail_df=pd.concat(bucket_rows,ignore_index=True) if bucket_rows else pd.DataFrame()
-bucket_summary=(bucket_detail_df.groupby(["cadence","N","approach_key","elo_bucket"],observed=False).agg(elo_true_mean=("elo_true_mean","mean"),pred_mean=("pred_mean","mean"),bias_mean=("bias_mean","mean"),MAE=("MAE","mean"),n=("n","sum")).reset_index().sort_values(["cadence","N","approach_key","elo_bucket"]))display(bucket_summary.head(80))
+bucket_summary=(bucket_detail_df.groupby(["cadence","N","approach_key","elo_bucket"],observed=False).agg(elo_true_mean=("elo_true_mean","mean"),pred_mean=("pred_mean","mean"),bias_mean=("bias_mean","mean"),MAE=("MAE","mean"),n=("n","sum")).reset_index().sort_values(["cadence","N","approach_key","elo_bucket"]))
+display(bucket_summary.head(80))
 
 # %%
 # ============================================================

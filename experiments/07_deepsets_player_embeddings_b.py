@@ -997,7 +997,8 @@ def compute_v8b_positive_features_for_cadence(cadence: str,
         ])
     else:
         selector_model = Pipeline([
-            ('i', SimpleImputer(strategy='median')),            ('s', StandardScaler()),
+            ('i', SimpleImputer(strategy='median')),
+            ('s', StandardScaler()),
             ('m', Ridge(alpha=10.0))
         ])
 
